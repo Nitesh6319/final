@@ -32,6 +32,7 @@
     </nav>
     <div class="container mt-5">
         <h1>Add Medicine+</h1>
+    
 
         <form id="medicineForm">
             <!-- Medicine Name -->
@@ -91,6 +92,8 @@
             var startTime = document.getElementById('startTime').value;
             var notes = document.getElementById('notes').value;
 
+            //console.log(localStorage.getItem('medicines')); //testing purpose
+
             // Retrieve existing medicine entries from local storage
             var existingMedicines = JSON.parse(localStorage.getItem('medicines')) || [];
 
@@ -105,6 +108,8 @@
             };
 
             existingMedicines.push(newMedicine);
+
+            console.log(existingMedicines);
 
             // Save the updated array to local storage
             localStorage.setItem('medicines', JSON.stringify(existingMedicines));
