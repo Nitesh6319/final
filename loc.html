@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Live Location</title>
+    <style>
+      #map {
+        height: 300px;
+        margin-top: 20px;
+      }
+    </style>
+    <!-- Include Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+      integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+      crossorigin=""
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha384-f4hU9F9j4bpe6tc5OKtZfGEdOuTrYF0VygWAsjPHaV9F5QR8XaNg0zWxmI9dI7uG"
+      crossorigin="anonymous"
+    />
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css"
+      integrity="sha384-nU14brUcp6StFntEOOEBvcJm4huWjB0OcIeQ3fltAfSmuZFrkAif0T+UtNGlKKQv"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#"
+              >Home <span class="sr-only">(current)</span></a
+            >
+            <a class="nav-item nav-link" href="cognitivegames.html">Games</a>
+            <a class="nav-item nav-link" href="addmedicine.html">medicine</a>
+            <a class="nav-item nav-link disabled" href="#">Contact us</a>
+          </div>
+        </div>
+      </nav>
+
+      <div id="map"></div>
+
+      <button class="btn btn-primary mt-3" onclick="getUserLocation()">
+        Get My Location
+      </button>
+    </div>
+
+    <!-- Include Leaflet JavaScript -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+      integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+      crossorigin=""
+    ></script>
+
+    <script>
+      let map;
+
+      function initMap() {
+        map = L.map("map").setView([0, 0], 2);
+
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution: "© OpenStreetMap contributors",
+        }).addTo(map);
+      }
+
+      function getUserLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.watchPosition(
+            (position) => {
+              const lat = position.coords.latitude;
+              const lng = position.coords.longitude;
+
+              // Clear previous markers
+              map.eachLayer((layer) => {
+                if (layer instanceof L.Marker) {
+                  layer.remove();
+                }
+              });
+
+              // Add marker for user's location
+              const marker = L.marker([lat, lng]).addTo(map);
+              map.setView([lat, lng], 15);
+
+              // You can use the coordinates (lat, lng) as needed
+              console.log(`User's location: Latitude ${lat}, Longitude ${lng}`);
+            },
+            (error) => {
+              console.error("Error getting user location:", error.message);
+            }
+          );
+        } else {
+          alert("Geolocation is not supported by your browser.");
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        initMap();
+      });
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Bootstrap JavaScript -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

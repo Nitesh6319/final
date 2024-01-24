@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale= 1.0">
+    <title>Add Medicine</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body style="background: url('med.svg') no-repeat; background-size: cover;">
+
+    <div class="container mt-5">
+        <h1 class="text-center">Add Medicine+</h1>
+
+        <form>
+            <!-- Medicine Name -->
+            <div class="form-group">
+                <label for="medicineName">Medicine Name:</label>
+                <input type="text" class="form-control" id="medicineName" placeholder="Enter medicine name" required>
+            </div>
+
+            <!-- Start Date -->
+            <div class="form-group">
+                <label for="startDate">Start Date:</label>
+                <input type="date" class="form-control" id="startDate" required>
+            </div>
+
+            <!-- End Date -->
+            <div class="form-group">
+                <label for="endDate">End Date:</label>
+                <input type="date" class="form-control" id="endDate" required>
+            </div>
+
+            <!-- Frequency -->
+            <div class="form-group">
+                <label for="frequency">Frequency:</label>
+                <input type="text" class="form-control" id="frequency" placeholder="Enter frequency" required>
+            </div>
+
+            <!-- Start Time -->
+            <div class="form-group">
+                <label for="startTime">Start Time:</label>
+                <input type="time" class="form-control" id="startTime" required>
+            </div>
+
+            <!-- Notes -->
+            <div class="form-group">
+                <label for="notes">Notes:</label>
+                <textarea class="form-control" id="notes" rows="3" placeholder="Enter notes"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary btn-block">SAVE</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

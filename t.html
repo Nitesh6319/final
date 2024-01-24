@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+    <!-- Add Bootstrap CSS link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Add Font Awesome CSS link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+            background: url('hg.svg') no-repeat;
+            background-size: cover;
+        }
+
+        .login-container {
+            width: 30%;
+            margin: auto;
+            margin-top: 100px;
+            opacity: 0.64;
+        }
+
+        .social-buttons {
+            margin-top: 20px;
+        }
+
+        .social-buttons button {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .social-buttons img {
+            max-width: 24px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container login-container">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title text-center">Login</h5>
+                <form>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" placeholder="Enter your username">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                    </div>
+                    <label class="mb-3" style="margin-left: 32%;">Create New Account</label>
+                    <button type="submit" class="btn btn-primary w-100">Login</button>
+                </form>
+
+                <div class="social-buttons text-center">
+                    <button class="btn btn-outline-primary mt-2">
+                        <img style="margin-left: 25%;" src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google Logo" />
+                        <label style="margin-right: 25%;"> Login with Google</label>
+                    </button>
+                    <button class="btn btn-outline-primary mt-2">
+                        <img style="margin-left: 25%;" src="https://img.icons8.com/fluent/48/000000/facebook-new.png" alt="Facebook Logo" />
+                        <label style="margin-right: 20%;"> Login with Facebook</label>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS and Popper.js links (required for Bootstrap components) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
